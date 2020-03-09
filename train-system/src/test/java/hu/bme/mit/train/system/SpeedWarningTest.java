@@ -2,6 +2,7 @@ package hu.bme.mit.train.system;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -12,7 +13,7 @@ import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
 import hu.bme.mit.train.system.TrainSystem;
 
-public class TrainSystemTest {
+public class SpeedWarningTest {
 
 	TrainController controller;
 	TrainSensor sensor;
@@ -48,8 +49,9 @@ public class TrainSystemTest {
 		user.overrideJoystickPosition(5);
 		controller.followSpeed();
 		controller.followSpeed();
+		controller.followSpeed();
 		Assert.assertEquals(
-			"You are going fast\nApproaching speed limit!\n",
+			"Approaching speed limit!\nApproaching speed limit!\n",
 			outContent.toString());
 	}
 
