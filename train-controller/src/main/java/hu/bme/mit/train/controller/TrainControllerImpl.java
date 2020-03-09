@@ -42,7 +42,7 @@ public class TrainControllerImpl implements TrainController {
 		if (referenceSpeed > speedLimit - 2) {
 			System.out.println("Approaching speed limit!");
 		}
-		if (referenceSpeed > speedLimit - 3) {
+		else if (referenceSpeed > speedLimit - 3) {
 			System.out.println("You are going fast");
 		}
 	}
