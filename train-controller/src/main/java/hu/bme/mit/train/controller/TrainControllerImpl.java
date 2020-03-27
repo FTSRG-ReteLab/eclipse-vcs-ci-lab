@@ -1,8 +1,5 @@
 package hu.bme.mit.train.controller;
 
-import java.lang.Runnable;
-import java.lang.Thread;
-
 import hu.bme.mit.train.interfaces.TrainController;
 
 public class TrainControllerImpl implements TrainController, Runnable {
