@@ -7,7 +7,7 @@ import hu.bme.mit.train.interfaces.TrainController;
 
 public class TrainControllerImpl implements TrainController, Runnable {
 
-	private final int TIMEUNIT = 1000;
+	private static final int TIMEUNIT = 1000;
 
 	private int step = 0;
 	private int referenceSpeed = 0;
