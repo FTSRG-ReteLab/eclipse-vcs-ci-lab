@@ -2,7 +2,9 @@ package hu.bme.mit.train.controller;
 
 import hu.bme.mit.train.interfaces.TrainController;
 
-public class TrainControllerImpl implements TrainController {
+public class TrainControllerImpl implements TrainController, Runnable {
+
+	private static final int TIMEUNIT = 1000;
 
 	private int step = 0;
 	private int referenceSpeed = 0;
@@ -47,6 +49,20 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;		
+	}
+
+	@Override
+	public void run()
+	{
+		Thread ct = Thread.currentThread();
+		while (!ct.isInterrupted()) {
+			try {
+				followSpeed();
+				Thread.sleep(TIMEUNIT);
+			} catch (InterruptedException ex) {
+				ct.interrupt();
+			}
+		}
 	}
 
 }
